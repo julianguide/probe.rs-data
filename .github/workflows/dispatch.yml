@@ -1,8 +1,9 @@
 
 name: Dispatch workflow in repo with submodule
-
-# Change to on every commit (or maybe just updates to yaml folder?).
-on: workflow_dispatch
+on:
+  push:
+    paths:
+      - probe-rs/targets/**
 
 jobs:
   update:
