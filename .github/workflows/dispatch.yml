@@ -14,6 +14,6 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
           repository: julianguide/probe.rs
-          event-type: update
+          event-type: submodule_update
           # github.event should contain these values: https://docs.github.com/en/webhooks/webhook-events-and-payloads#push
           client-payload: '{"event_name": "${{ github.event_name }}", "head_commit_message": "${{ github.event.head_commit.message }}"}'
