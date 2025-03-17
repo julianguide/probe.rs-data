@@ -9,11 +9,18 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
+      - name: github.event JSON
+        run: |
+          echo
+          echo '{"event": toJson(github.event)}'
+          echo '{"event": ${{ toJson(github.event) }}}'
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v3
         with:
           token: ${{ secrets.PAT }}
           repository: julianguide/probe.rs
           event-type: submodule_update
-          # github.event should contain these values: https://docs.github.com/en/webhooks/webhook-events-and-payloads#push
-          client-payload: "${{ toJson(github.event) }}"
+          # github.event contains these: https://docs.github.com/en/webhooks/webhook-events-and-payloads#push
+          # Must have fewer than 10 top-level keys and be under some size.
+          # https://github.com/marketplace/actions/repository-dispatch#client-payload
+          client-payload: '{"event": ${{ toJson(github.event) }}}'
