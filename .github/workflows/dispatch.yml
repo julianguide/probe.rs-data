@@ -1,0 +1,17 @@
+
+name: Dispatch workflow in repo with submodule
+
+# Change to on every commit (or maybe just updates to yaml folder?).
+on: workflow_dispatch
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          # token: ${{ secrets.PAT }}
+          repository: julianguide/probe.rs
+          event-type: Commit Update
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
