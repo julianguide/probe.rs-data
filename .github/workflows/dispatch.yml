@@ -15,4 +15,5 @@ jobs:
           token: ${{ secrets.PAT }}
           repository: julianguide/probe.rs
           event-type: update
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+          # github.event should contain these values: https://docs.github.com/en/webhooks/webhook-events-and-payloads#push
+          client-payload: '{"eventName": "${{ github.event_name }}", "headCommitMessage": "${{ github.event.head_commit.message }}"}'
