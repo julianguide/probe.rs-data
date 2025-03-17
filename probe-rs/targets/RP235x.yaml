@@ -1,4 +1,5 @@
 name: RP235xxxxxxxx
+broken: this shouldn't work
 manufacturer:
   id: 0x3b
   cc: 0x4
