@@ -1,5 +1,4 @@
-notname: RP235xxxxxxxx
-broken: this shouldn't work
+name: RP235x
 manufacturer:
   id: 0x3b
   cc: 0x4
