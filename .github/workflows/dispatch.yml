@@ -9,11 +9,6 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - name: github.event JSON
-        run: |
-          echo
-          echo '{"event": toJson(github.event)}'
-          echo '{"event": ${{ toJson(github.event) }}}'
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v3
         with:
