@@ -11,7 +11,7 @@ jobs:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v3
         with:
-          # token: ${{ secrets.PAT }}
+          token: ${{ secrets.PAT }}
           repository: julianguide/probe.rs
           event-type: Commit Update
           client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
