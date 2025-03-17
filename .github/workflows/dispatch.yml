@@ -13,5 +13,5 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
           repository: julianguide/probe.rs
-          event-type: Commit Update
+          event-type: update
           client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
